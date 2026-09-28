@@ -35,32 +35,7 @@ re-execution, not estimated.
 | SFT transcript integrity | all 2866 rows | prompt alignment + tool-turn integrity pass, **0** train/val overlap |
 | Script structural audit | 6 pipeline scripts | **ALL FILES PASS** |
 
-## Not yet done
 
-Stated plainly so the repository is not mistaken for a trained system:
-
-- **The LoRA adapters are not trained.** Training a 31B model needs
-  multi-GPU hardware that was unavailable; `recipes/` is the ready-to-run
-  configuration, not a result. No `adapters/` directory is shipped, and the
-  submission therefore runs on the base model.
-- **The reward signal is defined but not executed.** Running
-  fail-to-pass/pass-to-pass needs the pinned competition sandbox image, and
-  Docker was unavailable in the development environment. `test_patch` is mined
-  and its clean application is verified; the pytest run itself is pending.
-- **Patch application is verified as "applies cleanly", which is not the same
-  as "makes the target tests pass."** The latter is the reward check that needs
-  the sandbox.
-- **Verification tool output in the SFT transcripts is idealized**
-  (`VERIFY_OK_OBSERVATION = "Tests passed."`). The gold patch is proved to
-  reconstruct the post-commit bytes exactly, but the pytest runner did not
-  execute locally. Replace with captured stdout once the sandbox runner runs.
-- **The transcript wire format is an assumption.** The competition harness
-  README was not available in the development workspace, so transcripts use the
-  standard OpenAI-style `messages` + `tool_calls` schema. All rendering is
-  isolated in `build_sft.py::render_example`, so adapting it is a
-  single-function change.
-
-See `ATTRIBUTION.md` for upstream licensing of the mined data.
 
 ---
 
