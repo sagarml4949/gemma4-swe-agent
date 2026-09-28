@@ -1,0 +1,7 @@
+  tool_lora_train.jsonl    1098
+  tool_lora_val.jsonl      270
+  main_lora_train.jsonl    1228
+  main_lora_val.jsonl      270
+
+val holdout ids: 278  overlap with train: 0
+transcripts: {'tool_lora': 1368, 'main_lora': 1498}

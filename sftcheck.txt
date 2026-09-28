@@ -1,0 +1,18 @@
+PASS  tool_lora_train  rows=1098
+      sys prompt: empty=0 mismatched=0 wrong-role=0
+      structure:  orphan_tool=0 dangling_call=0 not_ending_on_assistant=0
+      sys prompt length: 2215 chars
+PASS  tool_lora_val  rows=270
+      sys prompt: empty=0 mismatched=0 wrong-role=0
+      structure:  orphan_tool=0 dangling_call=0 not_ending_on_assistant=0
+      sys prompt length: 2215 chars
+PASS  main_lora_train  rows=1228
+      sys prompt: empty=0 mismatched=0 wrong-role=0
+      structure:  orphan_tool=0 dangling_call=0 not_ending_on_assistant=0
+      sys prompt length: 3805 chars
+PASS  main_lora_val  rows=270
+      sys prompt: empty=0 mismatched=0 wrong-role=0
+      structure:  orphan_tool=0 dangling_call=0 not_ending_on_assistant=0
+      sys prompt length: 3805 chars
+
+ALL SFT CHECKS PASS

@@ -1,0 +1,13 @@
+# The submission/ tree is the literal competition artifact. It was validated in
+# this exact byte layout, so nothing in it may be line-ending normalized.
+submission/** text eol=lf
+
+# Datasets are machine-generated JSONL whose integrity was verified by replaying
+# them against real commit contents. Never rewrite their bytes on checkout.
+*.jsonl -text
+
+# Everything else: keep LF in the repository.
+*.py    text eol=lf
+*.md    text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf

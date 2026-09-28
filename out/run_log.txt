@@ -1,0 +1,3 @@
+ERROR: cannot run sandbox: docker CLI not found
+This is expected on a host without Docker/swebench-sandbox.
+The workload itself is still valid -- see 'build'.

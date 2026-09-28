@@ -1,0 +1,34 @@
+# =============================================================================
+# code_analyzer — read-only localization sub-agent
+# =============================================================================
+# Purpose: keep the root coder agent's context budget free for editing and
+# verification by doing the expensive "where is the bug" search here, using
+# the graph + embedding tools, and returning a short, high-precision summary.
+# =============================================================================
+
+name: code_analyzer
+model: gemma-4-31b-it-qat-w4a16-ct
+
+description: >
+  Localizes the root cause of an issue in a repository. Never edits files;
+  only reads and reports.
+
+instruction: !include ../prompts/analyzer.md
+
+generation_config:
+  temperature: 0.2
+  top_p: 0.9
+  max_output_tokens: 1024
+
+# Deliberately no run_command, edit_file, write_file, or submit_patch here —
+# this agent cannot mutate the workspace even if prompted to.
+tools:
+  - read_file
+  - get_code_neighbors
+  - search_similar_code
+  - get_code_subgraph
+
+# A lighter/cheaper adapter can be routed here independently of the root
+# agent's adapter, e.g. one fine-tuned specifically on graph-tool call
+# patterns. Left unset in this baseline.
+# adapter: tool_lora

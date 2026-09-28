@@ -1,0 +1,19 @@
+# --- Third-party repository clones -------------------------------------------
+# Full upstream clones (fastapi, rich, requests, httpx) used only as mining
+# input. They are re-created by the commands in README.md and are deliberately
+# not committed: they are not this project's source, and each contains its own
+# nested .git directory.
+repos/
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# --- Development error dumps -------------------------------------------------
+# Transient stderr captures from intermediate development runs. The published
+# evidence logs (out/*_log.txt, out/verify_sample.txt, out/vt_log.txt) and the
+# datasets themselves are kept in version control.
+out/*err*.txt

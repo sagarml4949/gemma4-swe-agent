@@ -1,0 +1,57 @@
+localization_val records: 278
+mean gold symbols/record: 4.06
+========================================================================
+repo=fastapi  fastapi__84fc3860b7cd
+PROBLEM: ⬆ Bump the python-packages group with 12 updates (#16121)
+GOLD: __init__(fastapi/security/api_key.py:14), APIKeyBase(fastapi/security/api_key.py:11)
+TARGET REPORT:
+  Most likely fix location(s):
+  1. __init__ (fastapi/security/api_key.py) - matches the reported behaviour
+  2. APIKeyBase (fastapi/security/api_key.py) - matches the reported behaviour
+  
+  Related context the caller should be aware of:
+  - APIKeyBase may need to change in tandem with #1.
+  
+  Confidence: medium, because the reported behaviour maps onto the symbol(s) named above.
+========================================================================
+repo=fastapi  fastapi__5429fed84e84
+PROBLEM: ✨ Add `app.frontend(check_dir="auto")`, to make local development more convenient with `fastapi dev` (#16102)
+GOLD: frontend(fastapi/applications.py:1222), FastAPI(fastapi/applications.py:42), frontend(fastapi/routing.py:2599), add_websocket_route(fastapi/routing.py:2590)
+TARGET REPORT:
+  Most likely fix location(s):
+  1. frontend (fastapi/applications.py) - matches the reported behaviour
+  2. FastAPI (fastapi/applications.py) - matches the reported behaviour
+  3. frontend (fastapi/routing.py) - matches the reported behaviour
+  
+  Related context the caller should be aware of:
+  - FastAPI, add_websocket_route, frontend may need to change in tandem with #1.
+  
+  Confidence: medium, because the reported behaviour maps onto the symbol(s) named above.
+========================================================================
+repo=fastapi  fastapi__ad03e117c001
+PROBLEM: 🐛 Fix stream item type lost when using `include_router()` (#15077)
+GOLD: from_api_route(fastapi/routing.py:1417), _EffectiveRouteContext(fastapi/routing.py:1365), _populate_api_route_state(fastapi/routing.py:953)
+TARGET REPORT:
+  Most likely fix location(s):
+  1. from_api_route (fastapi/routing.py) - matches the reported behaviour
+  2. _EffectiveRouteContext (fastapi/routing.py) - matches the reported behaviour
+  3. _populate_api_route_state (fastapi/routing.py) - matches the reported behaviour
+  
+  Related context the caller should be aware of:
+  - _EffectiveRouteContext, _populate_api_route_state may need to change in tandem with #1.
+  
+  Confidence: medium, because the reported behaviour maps onto the symbol(s) named above.
+========================================================================
+repo=fastapi  fastapi__65ef53ae6ac1
+PROBLEM: ♻️ Update the lru_cache limit for dependencies to account for large apps (#16062)
+GOLD: _is_async_gen_callable_cached(fastapi/dependencies/models.py:171), _is_gen_callable_cached(fastapi/dependencies/models.py:141), _get_security_scheme(fastapi/dependencies/models.py:129)
+TARGET REPORT:
+  Most likely fix location(s):
+  1. _is_async_gen_callable_cached (fastapi/dependencies/models.py) - matches the reported behaviour
+  2. _is_gen_callable_cached (fastapi/dependencies/models.py) - matches the reported behaviour
+  3. _get_security_scheme (fastapi/dependencies/models.py) - matches the reported behaviour
+  
+  Related context the caller should be aware of:
+  - _get_security_scheme, _is_gen_callable_cached may need to change in tandem with #1.
+  
+  Confidence: medium, because the reported behaviour maps onto the symbol(s) named above.

@@ -1,0 +1,7 @@
+# Optional per-task budget guidance for the harness.
+# Total budget is 12 hours across all tasks (sandbox setup included, patch
+# validation excluded). We cap any single task well below the naive
+# even split (12h / 129 tasks ≈ 5.6 min/task) so that a handful of
+# pathologically hard issues cannot starve the rest of the run.
+per_task_time_limit_seconds: 900   # 15 minutes max per task
+min_reserved_tasks_fraction: 0.9   # try to reach at least 90% of tasks

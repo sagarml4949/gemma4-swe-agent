@@ -1,0 +1,7 @@
+# Generation parameters for the root coder agent.
+# Lower temperature than the analyzer: editing/patch generation benefits
+# from determinism far more than localization brainstorming does.
+temperature: 0.1
+top_p: 0.9
+top_k: 40
+max_output_tokens: 2048

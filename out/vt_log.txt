@@ -1,0 +1,4 @@
+checked instances: 1498  (file-edits replayed: 2987)
+exact reconstructions: 2986/2987 = 100.0%
+failure reasons:
+     1  old_string ambiguous (2x)

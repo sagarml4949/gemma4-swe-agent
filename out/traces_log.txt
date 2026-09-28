@@ -1,0 +1,15 @@
+  fastapi: processed 306
+  httpx: processed 425
+  requests: processed 316
+  rich: processed 475
+Wrote traces:
+  localization_train.jsonl     1112
+  localization_val.jsonl       278
+  edit_train.jsonl             1228
+  edit_val.jsonl               270
+  verification_train.jsonl     1244
+  verification_val.jsonl       278
+
+instances=1390 val_ids=278
+no-symbol (skipped localization): {'fastapi': 41, 'httpx': 20, 'requests': 43, 'rich': 28}
+edit-trace skips: {'deleted file (not expressible)': 12, 'rename (not expressible)': 7, 'ambiguous old_string': 5}

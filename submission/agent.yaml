@@ -1,0 +1,50 @@
+# =============================================================================
+# Root agent configuration — Gemma 4 Developer Agent Competition
+# =============================================================================
+# This is the entry point the harness loads. It defines the primary
+# "coder" agent that owns the full explore -> localize -> edit -> verify ->
+# submit loop for a single SWE-bench-style task.
+# =============================================================================
+
+name: swe_coder_root
+model: gemma-4-31b-it-qat-w4a16-ct
+
+description: >
+  Autonomous software engineering agent. Given a repository snapshot and a
+  natural-language bug report or feature request, it explores the codebase,
+  localizes the relevant code, applies a minimal correct fix, verifies the
+  fix locally, and submits a patch.
+
+instruction: !include prompts/system.md
+
+generation_config: !include configs/sampling.yaml
+
+# Only tools listed here are made available to this agent by the harness.
+tools:
+  - run_command
+  - submit_patch
+  - get_status
+  - read_file
+  - edit_file
+  - write_file
+  - get_code_neighbors
+  - search_similar_code
+  - get_code_subgraph
+
+# The analyzer is exposed to the root agent as a callable tool
+# ("agent_tool"), not as a parallel peer — the root agent decides when to
+# delegate localization work to it.
+sub_agents:
+  - agent_tool: sub_agents/code_analyzer.yaml
+    name: code_analyzer
+    description: >
+      Read-only localization specialist. Given the problem statement, returns
+      a ranked shortlist of the most relevant files/functions using the code
+      graph and embeddings tools, without editing anything. Call this first,
+      before reading files by hand, on any task where the relevant code is
+      not already obvious from the problem statement.
+
+# Uncomment and point at a trained adapter directory to route this agent's
+# generations through a LoRA. Left unset here: this submission runs the base
+# gemma-4-31b-it-qat-w4a16-ct checkpoint with prompting/tooling only.
+# adapter: main_lora

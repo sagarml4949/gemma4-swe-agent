@@ -1,0 +1,10 @@
+[fastapi] scanned=7700 kept=307
+[httpx] scanned=1482 kept=425
+[requests] scanned=4891 kept=319
+[rich] scanned=3387 kept=475
+
+TOTAL kept=1526 unique=1522 -> C:\Users\nerel\Downloads\swe_data\out\run2.jsonl
+  fastapi    306
+  httpx      425
+  requests   316
+  rich       475

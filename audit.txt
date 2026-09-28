@@ -1,0 +1,8 @@
+mine_tasks.py: OK (8 funcs: is_test_path, is_source_path, run_git, content_hash...)
+verify_mined.py: OK (7 funcs: git, apply_check, _find_block, read_files_at...)
+build_traces.py: OK (10 funcs: read_at, changed_line_ranges, enclosing_symbols, gold_symbols...)
+validate_traces.py: OK (2 funcs: replay, main...)
+build_sft.py: OK (7 funcs: read_prompt, load_jsonl, tool_call, render_example...)
+reward_sandbox.py: OK (7 funcs: _with_newline, build_workload, docker_script, run_job...)
+
+ALL FILES PASS

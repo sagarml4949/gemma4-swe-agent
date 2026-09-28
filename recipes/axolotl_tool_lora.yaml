@@ -1,0 +1,63 @@
+base_model: google/gemma-4-31b-it
+model_type: AutoModelForCausalLM
+tokenizer_type: AutoTokenizer
+
+load_in_8bit: false
+load_in_4bit: true
+
+datasets:
+  - path: ../out/sft/tool_lora_train.jsonl
+    type: chat_template
+    chat_template: tokenizer_default
+    field_messages: messages
+
+test_datasets:
+  - path: ../out/sft/tool_lora_val.jsonl
+    type: chat_template
+    chat_template: tokenizer_default
+    field_messages: messages
+
+dataset_prepared_path: ./last_run_prepared_tool
+val_set_size: 0.0
+output_dir: ./adapters/tool_lora
+
+sequence_len: 2048
+sample_packing: false
+pad_to_sequence_len: false
+
+adapter: lora
+lora_model_dir:
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+
+gradient_accumulation_steps: 4
+micro_batch_size: 4
+num_epochs: 3
+optimizer: paged_adamw_8bit
+lr_scheduler: cosine
+learning_rate: 0.0002
+
+train_on_inputs: false
+group_by_length: false
+bf16: true
+fp16: false
+tf32: true
+
+gradient_checkpointing: true
+early_stopping_patience:
+resume_from_checkpoint:
+logging_steps: 10
+eval_steps: 50
+eval_batch_size: 4
+save_strategy: steps
+save_steps: 100
+save_total_limit: 2
+warmup_ratio: 0.05
+weight_decay: 0.01
+flash_attention: true
